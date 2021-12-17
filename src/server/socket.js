@@ -7,6 +7,6 @@ const options = {
     transports: ['websocket']
 };
 
-const socket = io(`ws//:https://lit-atoll-99067.herokuapp.com:${process.env.PORT}`, options);
+const socket = io('ws//lit-atoll-99067.herokuapp.com/3001', options);
 
 export default socket;

@@ -115,7 +115,7 @@ useEffect(() => {
 useEffect(() => {
     const handleRemovePeer = ({ peerID }) => {
         if (peerConnections.current[peerID]) {
-            //peerConnections.current[peerID].close();
+            peerConnections.current[peerID].close();
         }
         delete peerConnections.current[peerID];
         delete peerMediaElements.current[peerID];

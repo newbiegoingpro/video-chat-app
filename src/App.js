@@ -1,6 +1,6 @@
-import Room from './Room.jsx';
-import Main from './Main.jsx';
-import NotFound from './NotFound.jsx';
+import Room from '../src/pages/notFound/room/Room';
+import Main from '../src/pages/notFound/main/Main';
+import NotFound from '../src/pages/notFound/notFound/NotFound';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 function App() {
   return (

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router'
-import useWebRtc, { LOCAL_VIDEO } from './hooks/useWebRtc';
+import useWebRtc, { LOCAL_VIDEO } from '../../../hooks/useWebRtc';
 
 function layout(clientsNumber = 1) {
     const pairsOfClients = Array.from({ length: clientsNumber }).reduce((acc, next, index, arr) => {

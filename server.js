@@ -5,7 +5,7 @@ const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 const {version, validate} = require('uuid');
 
-const ACTIONS = require('./src/server/actions');
+const ACTIONS = require('./src/socket/actions');
 const PORT = process.env.PORT || 3001;
 
 function getClientRooms() {
@@ -53,14 +53,10 @@ io.on('connection', socket => {
     const {rooms} = socket;
 
     Array.from(rooms)
-      // LEAVE ONLY CLIENT CREATED ROOM
-      .filter(roomID => validate(roomID) && version(roomID) === 4)
       .forEach(roomID => {
-
         const clients = Array.from(io.sockets.adapter.rooms.get(roomID) || []);
 
-        clients
-          .forEach(clientID => {
+        clients.forEach(clientID => {
           io.to(clientID).emit(ACTIONS.REMOVE_PEER, {
             peerID: socket.id,
           });
@@ -105,4 +101,4 @@ app.get('*', (req, res) => {
 
 server.listen(PORT, () => {
   console.log('Server Started!')
-})
+}) 

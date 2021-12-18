@@ -1,6 +1,6 @@
 import React from 'react'
-import ACTIONS from './server/actions';
-import socket from './server/socket';
+import ACTIONS from '../../../socket/actions';
+import socket from '../../../socket/index';
 import { useNavigate } from 'react-router';
 import { v4 } from 'uuid';
 

@@ -99,6 +99,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(publicPath, 'index.html'));
 });
 
-server.listen(PORT, () => {
+server.listen(3001, () => {
   console.log('Server Started!')
 }) 

@@ -1,3 +1,4 @@
+require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const app = express();
@@ -6,7 +7,7 @@ const io = require('socket.io')(server);
 const {version, validate} = require('uuid');
 
 const ACTIONS = require('./src/socket/actions');
-const PORT = process.env.PORT || 3001;
+
 
 function getClientRooms() {
   const {rooms} = io.sockets.adapter;
@@ -98,6 +99,8 @@ app.use(express.static(publicPath));
 app.get('*', (req, res) => {
   res.sendFile(path.join(publicPath, 'index.html'));
 });
+
+const PORT = process.env.PORT || 3001;
 
 server.listen(PORT, () => {
   console.log('Server Started!')

@@ -7,6 +7,6 @@ const options = {
   transports : ["websocket"]
 }
 
-const socket = io('/', options);
+const socket = io('https://lit-atoll-99067.herokuapp.com/', options);
 
 export default socket;
